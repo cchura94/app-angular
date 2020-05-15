@@ -1,0 +1,83 @@
+<h1>{{ titulo }}</h1>
+
+{{ clientes }}
+<select name="" id="">
+    <option *ngFor="let clie of clientes" value="">{{ clie }}</option>
+</select>
+
+<ol>
+    <li *ngFor="let clie of clientes">{{ clie }}</li>
+</ol>
+<button (click)="estado=!estado">{{ (!estado)?'Cerrar Venta':'Abrir Venta' }}</button>
+
+<div class="venta" *ngIf="!estado">
+    <div class="productos">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>NOMBRE</th>
+                    <th>PRECIO</th>
+                    <th>CANTIDAD</th>
+                    <th>DESCRIPCION</th>
+                    <th>SUBTOTAL</th>
+                    <th>ACCIONES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let prod of productos" >
+                    <td>{{ prod.nombre }}</td>
+                    <td>{{ prod.precio }}</td>
+                    <td>{{ prod.cantidad }}</td>
+                    <td>{{ prod.descripcion }}</td>
+                    <td>{{ prod.precio * prod.cantidad }}</td>
+                    <td><button (click)="addCarrito(prod)">+</button></td>
+                </tr>
+            </tbody>
+        
+        </table>
+
+        <h1>Nuevo Producto</h1>
+
+        <form [formGroup]="productoForm">
+  
+            <label>
+              Nombre:
+              <input type="text" formControlName="nombre">
+            </label>
+          <br>
+            <label>
+              precio:
+              <input type="number" step="0.01" formControlName="precio">
+            </label>
+<br>
+            <label>
+                cantidad:
+                <input type="number" formControlName="cantidad">
+              </label>
+<br>
+              <label>
+                Descripcion:
+                <input type="text" formControlName="descricion">
+              </label>
+
+              <button (click)="addProducto()">Agregar</button>
+          
+        </form>
+    </div>
+    
+    
+    <div class="carrito">
+        <div class="item" *ngFor="let c of carrito">
+            <h3>{{ c.nombre | uppercase }}</h3>
+            <p>Precio: {{ c.precio | currency:"Bs. " }}</p>
+            <p>Cantidad: {{ c.cantidad }}</p>
+            <p>SubTotal: {{ c.precio * c.cantidad | currency: "Bs. "}}</p>
+        </div>
+    
+        TOTAL A COBRAR: {{ total }} 
+        
+    </div>
+    
+</div>
+
+

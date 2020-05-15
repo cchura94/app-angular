@@ -1,0 +1,16 @@
+.productos{
+    width: 50%;
+    height: 500px;
+    float: left;
+    background-color: darksalmon;
+}
+.carrito{
+    width: 50%;
+    height: 500px;
+    float: left;
+    background-color:darkslateblue;
+}
+.item{
+    color: #fff;
+    background-color: dodgerblue;
+}

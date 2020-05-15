@@ -1,0 +1,13 @@
+a{
+    padding: 20px;
+    color:#fff;
+    background-color: darkgreen;
+    text-decoration: none;
+}
+
+a:hover{
+    padding: 30px;
+    color:#fff;
+    background-color: #000;
+    text-decoration: none;
+}
