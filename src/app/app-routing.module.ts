@@ -11,28 +11,31 @@ import { LoginComponent } from './login/login.component';
 const routes: Routes = [
   {
     path: '',
-    component: InicioComponent
+    component: InicioComponent,
+    children: [
+      {
+        path: "contacto",
+        component: ContactoComponent
+      },
+      {
+        path: 'nosotros',
+        component: NosotrosComponent
+      },
+      {
+        path: 'cristian',
+        component: PruebaComponent
+      },
+      {
+        path: 'ventas',
+        component: CarritoComponent
+      },
+      {
+        path: 'ingresar',
+        component: LoginComponent
+      },
+    ]
   },
-  {
-    path: "contacto",
-    component: ContactoComponent
-  },
-  {
-    path: 'nosotros',
-    component: NosotrosComponent
-  },
-  {
-    path: 'cristian',
-    component: PruebaComponent
-  },
-  {
-    path: 'ventas',
-    component: CarritoComponent
-  },
-  {
-    path: 'ingresar',
-    component: LoginComponent
-  },
+  
   {
     path: 'admin',
     //component: AdminComponent,
