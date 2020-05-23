@@ -29,7 +29,9 @@ export class LoginComponent implements OnInit {
   iniciar_sesion(){
     this.loginServicio.ingresar(this.loginForm.value)
                       .subscribe((res: any) => {
-                        console.log(res); 
+                        console.log(res);
+                        localStorage.setItem("token", btoa(JSON.stringify(res)))
+
                         this.toastr.success("Sesion iniciada correctamente", "Mensaje");
                         this.route.navigate(['/admin'])                      
                       },(error) => {
@@ -39,7 +41,6 @@ export class LoginComponent implements OnInit {
                           this.toastr.error("Los datos son incorrecto", "Advertencia");
                         }
                       })
-
   }
 
 }

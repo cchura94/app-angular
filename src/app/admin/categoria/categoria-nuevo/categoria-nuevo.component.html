@@ -1,1 +1,15 @@
-<p>categoria-nuevo works!</p>
+<h1>Nueva Categoria</h1>
+
+<form [formGroup]="categoriaForm">
+    <label for="">Nombre:</label>
+    <input type="text" formControlName="nombre">
+    <br>
+    <label for="">Descripcion:</label>
+    <input type="text" formControlName="descripcion">
+    <br>
+    <button (click)="guardarCategoria()">Guardar</button>
+</form>
+
+{{ categoriaForm.value | json }}
+<br>
+{{ categoriaForm.valid }}

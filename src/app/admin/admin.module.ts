@@ -19,6 +19,7 @@ import { CategoriaEditarComponent } from './categoria/categoria-editar/categoria
 import { ProductoEditarComponent } from './producto/producto-editar/producto-editar.component';
 import { ProductoNuevoComponent } from './producto/producto-nuevo/producto-nuevo.component';
 import { ProductoListarComponent } from './producto/producto-listar/producto-listar.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -32,7 +33,8 @@ import { ProductoListarComponent } from './producto/producto-listar/producto-lis
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    ReactiveFormsModule
   ],
   bootstrap: [AdminComponent]
 })
