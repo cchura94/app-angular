@@ -1,1 +1,15 @@
-<p>categoria-editar works!</p>
+<h1>{{ id }}</h1>
+<h1>EDITAR CATEGORIA</h1>
+<form [formGroup]="categoriaForm">
+    <label for="">Nombre:</label>
+    <input type="text" formControlName="nombre">
+    <br>
+    <label for="">Descripcion:</label>
+    <input type="text" formControlName="descripcion">
+    <br>
+    <button (click)="modificar()">Modificar</button>
+</form>
+
+{{ categoriaForm.value | json }}
+<br>
+{{ categoriaForm.valid }}

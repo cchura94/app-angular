@@ -13,7 +13,7 @@
         <td>{{ cat.nombre }}</td>
         <td>{{ cat.descripcion }}</td>
         <td>
-            <button>editar</button>
+            <button routerLink="/admin/categoria/{{cat.id}}/editar">editar</button>
             <button (click)="eliminar(cat.id, i)">eliminar</button>
         </td>
     </tr>

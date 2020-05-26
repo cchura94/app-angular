@@ -6,6 +6,7 @@ import { PruebaComponent } from './prueba/prueba.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { CarritoComponent } from './carrito/carrito.component';
 import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './guards/auth.guard';
 //import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
@@ -40,7 +41,9 @@ const routes: Routes = [
     path: 'admin',
     //component: AdminComponent,
     //loadChildren: './admin/admin.module#AdminModule'
-    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
+    canActivate: [AuthGuard]
+    
   }
 ];
 

@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
                         this.toastr.success("Sesion iniciada correctamente", "Mensaje");
                         this.route.navigate(['/admin'])                      
                       },(error) => {
-                        console.log(error);
+                        console.log("error");
                         if(error.status == 401){
                           console.log("Error");
                           this.toastr.error("Los datos son incorrecto", "Advertencia");

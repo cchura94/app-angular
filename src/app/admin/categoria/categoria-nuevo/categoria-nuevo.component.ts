@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CategoriaService } from '../categoria.service';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-categoria-nuevo',
@@ -16,7 +18,9 @@ export class CategoriaNuevoComponent implements OnInit {
     }    
   )
 
-  constructor(protected categoriaService: CategoriaService) { }
+  constructor(protected categoriaService: CategoriaService,
+              protected toastr: ToastrService,
+              protected router: Router) { }
 
   ngOnInit(): void {
   }
@@ -25,6 +29,12 @@ export class CategoriaNuevoComponent implements OnInit {
     this.categoriaService.guardar(this.categoriaForm.value).subscribe(
       (res: any) => {
         console.log(res)
+        this.toastr.success("Categoria Registrado correctamente", "Mensaje");
+        this.router.navigate(["/admin/categoria"])
+      },
+      (error: any) => {
+        this.toastr.error("Error No se guardo la categoria", "Error");
+     
       }
     )
   }
