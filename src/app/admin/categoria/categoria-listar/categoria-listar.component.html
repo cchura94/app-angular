@@ -1,5 +1,14 @@
 <h2>Lista de Categorias</h2>
 
+<input type="file" 
+        (change)="cargaArchivo($event)" 
+        value="Importar"
+        multiple="false"
+        >
+
+<button (click)="exportarArchivoCategorias()" >Exportar excel</button>
+<button (click)="exportarArchivo()" >Exportar archivo 2</button>
+
 <table border="1">
     <tr>
         <td>ID</td>
@@ -17,6 +26,15 @@
             <button (click)="eliminar(cat.id, i)">eliminar</button>
         </td>
     </tr>
-
-
 </table>
+
+<table>
+    <body>
+        <tr *ngFor="let fila of data">
+            <td *ngFor="let celda of fila">
+                {{ celda }}
+            </td>
+        </tr>        
+    </body>
+</table>
+{{data}}

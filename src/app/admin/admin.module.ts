@@ -20,6 +20,8 @@ import { ProductoEditarComponent } from './producto/producto-editar/producto-edi
 import { ProductoNuevoComponent } from './producto/producto-nuevo/producto-nuevo.component';
 import { ProductoListarComponent } from './producto/producto-listar/producto-listar.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptorService } from '../auth-interceptor.service';
 
 
 
@@ -36,6 +38,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatListModule,
     ReactiveFormsModule
   ],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptorService,
+    multi: true
+  }],
   bootstrap: [AdminComponent]
 })
 export class AdminModule { }
